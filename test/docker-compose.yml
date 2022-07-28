@@ -1,0 +1,18 @@
+version: "3.5"
+services:
+  webserver:
+    image: test:1.0
+    ports:
+         - "82:82"
+    container_name: test1
+    networks: 
+       - local-net
+  proxy:
+    image: cjiangyong/tk55nginx
+    container_name: mynginx
+    ports:
+         - "8080:80"
+    networks:
+         - local-net
+networks: 
+  local-net:
